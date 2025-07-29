@@ -1,0 +1,414 @@
+@import 'tailwindcss';
+@import "tw-animate-css";
+
+@layer base {
+  * {
+    @apply border-border
+  }
+}
+
+/* Windows 95 Animations */
+@keyframes windowOpen {
+  0% {
+    transform: scale(0.8) translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes windowClose {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8) translateY(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes windowMinimize {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.1) translateY(400px);
+    opacity: 0;
+  }
+}
+
+@keyframes windowRestore {
+  0% {
+    transform: scale(0.1) translateY(400px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes startMenuSlide {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes iconHover {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes bootGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 100, 200, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 100, 200, 0.8);
+  }
+}
+
+/* Taskbar button press effect */
+@keyframes buttonPress {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* MSN notification bubble */
+@keyframes notificationBounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+/* Loading bar animation */
+@keyframes progressPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Smooth window transitions */
+.window-transition {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* MSN bubble effect */
+@keyframes msnBubble {
+  0% {
+    transform: scale(0.9) translateY(10px);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05) translateY(-2px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Authentic Windows 95 button press */
+.win95-button:active {
+  box-shadow: inset 2px 2px 4px rgba(0,0,0,0.3), inset -1px -1px 2px rgba(255,255,255,0.8) !important;
+  transform: translateX(1px) translateY(1px);
+  animation: buttonPress 0.1s ease;
+}
+
+/* Additional MSN animations */
+@keyframes msnTyping {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes onlineIndicator {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* Conversation bubble fade-in */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contact hover effect */
+@keyframes contactHover {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+}
+
+/* MSN notification sound visual */
+.msn-notification {
+  animation: notificationBounce 0.6s ease;
+}
+
+/* Online status pulse */
+.online-pulse {
+  animation: onlineIndicator 2s infinite;
+}
+
+/* Window drag cursor */
+.window-dragging {
+  cursor: move !important;
+}
+
+.window-dragging * {
+  cursor: move !important;
+}
+
+/* Desktop icon animation classes */
+.desktop-icon {
+  transition: all 0.2s ease;
+}
+
+.desktop-icon:hover {
+  animation: iconHover 0.3s ease;
+  filter: brightness(1.2);
+}
+
+/* Emoticon picker animation */
+@keyframes emoticonSlideIn {
+  0% {
+    transform: translateY(20px) scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* File transfer progress animation */
+@keyframes progressGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(34, 197, 94, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+  }
+}
+
+/* Emoticon hover effect */
+@keyframes emoticonHover {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+/* File transfer notification */
+@keyframes fileTransferPulse {
+  0%, 100% {
+    background-color: rgba(254, 240, 138, 0.5);
+  }
+  50% {
+    background-color: rgba(254, 240, 138, 0.8);
+  }
+}
+
+/* Typing indicator */
+@keyframes typingDots {
+  0%, 20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  80%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Message send animation */
+@keyframes messageSend {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(10px) scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Custom hover scale */
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+
+/* Start menu animation */
+.start-menu {
+  animation: startMenuSlide 0.2s ease-out;
+}
+
+/* Boot screen animation */
+.boot-glow {
+  animation: bootGlow 2s ease-in-out infinite;
+}
+
+/* Progress bar animation */
+.progress-bar {
+  animation: progressPulse 1s ease-in-out infinite;
+}
+
+/* Emoticon picker styling */
+.emoticon-picker {
+  animation: emoticonSlideIn 0.3s ease-out;
+}
+
+/* File transfer progress bar */
+.transfer-progress {
+  animation: progressGlow 2s ease-in-out infinite;
+}
+
+/* Emoticon button hover */
+.emoticon-btn:hover {
+  animation: emoticonHover 0.3s ease;
+}
+
+/* File transfer status pulse */
+.file-transfer-active {
+  animation: fileTransferPulse 2s ease-in-out infinite;
+}
+
+/* Message animation classes */
+.message-sending {
+  animation: messageSend 0.4s ease;
+}
+
+/* Typing indicator animation */
+.typing-indicator::after {
+  content: '...';
+  animation: typingDots 1.5s infinite;
+}
+
+/* Apply emoticon picker class */
+.emoticon-picker-container {
+  animation: emoticonSlideIn 0.3s ease-out;
+}
+
+/* Apply emoticon hover class */
+.emoticon-button:hover {
+  animation: emoticonHover 0.3s ease;
+}
+
+/* File transfer progress styling */
+.file-transfer-progress {
+  animation: progressGlow 2s ease-in-out infinite;
+}
+
+:root {
+  --background: oklch(0.55 0.15 180);
+  --foreground: oklch(0.15 0 0);
+  --card: oklch(0.75 0 0);
+  --card-foreground: oklch(0.15 0 0);
+  --popover: oklch(0.75 0 0);
+  --popover-foreground: oklch(0.15 0 0);
+  --primary: oklch(0.25 0.15 240);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.5 0 0);
+  --secondary-foreground: oklch(0.98 0 0);
+  --accent: oklch(0.55 0.25 0);
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.55 0.25 0);
+  --destructive-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.7 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+  --border: oklch(0.6 0 0);
+  --input: oklch(0.6 0 0);
+  --ring: oklch(0.45 0 0);
+  --radius: 0.25rem;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) * 1.5);
+  --radius-xl: calc(var(--radius) * 2);
+  --radius-2xl: calc(var(--radius) * 3);
+  --radius-full: 9999px;
+}
