@@ -27,7 +27,7 @@ import { SearchWindow } from './components/windows/SearchWindow';
 import { AppointmentsWindow } from './components/windows/AppointmentsWindow';
 import { MessagesWindow } from './components/windows/MessagesWindow';
 import { ProfessionalDashboardWindow, CalendarWindow } from './components/windows/ProfessionalWindows';
-import TetrisBackground from './components/common/TetrisBackground';
+import TetrisBackground from './components/common/TetrisBackground_new';
 
 const TarantoMarketplace = () => {
   // Boot and main app state
