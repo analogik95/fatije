@@ -27,6 +27,7 @@ import { SearchWindow } from './components/windows/SearchWindow';
 import { AppointmentsWindow } from './components/windows/AppointmentsWindow';
 import { MessagesWindow } from './components/windows/MessagesWindow';
 import { ProfessionalDashboardWindow, CalendarWindow } from './components/windows/ProfessionalWindows';
+import TetrisBackground from './components/common/TetrisBackground';
 
 const TarantoMarketplace = () => {
   // Boot and main app state
@@ -280,15 +281,15 @@ const TarantoMarketplace = () => {
     }
   };
 
-  const bookAppointment = (professional: Professional, date: string, time: string, type: 'presenza' | 'video') => {
+  const bookAppointment = (professional: Professional) => {
     const newAppointment: Appointment = {
       id: Date.now(),
       professional: professional.name,
       specialty: professional.specialty,
-      date: date,
-      time: time,
+      date: "2025-07-30",
+      time: "14:00",
       status: "in-attesa",
-      type: type
+      type: "presenza"
     };
 
     setAppointments(prev => [...prev, newAppointment]);
@@ -296,7 +297,7 @@ const TarantoMarketplace = () => {
     const systemMessage: Message = {
       id: Date.now() + 1,
       from: "Sistema Prenotazioni",
-      message: `✅ Richiesta inviata a ${professional.name} per il ${new Date(date).toLocaleDateString('it-IT')} alle ore ${time}`,
+      message: `✅ Richiesta inviata a ${professional.name} per il ${newAppointment.date} alle ore ${newAppointment.time}`,
       time: formatTime(new Date()),
       unread: true
     };
@@ -304,14 +305,14 @@ const TarantoMarketplace = () => {
     setMessages(prev => [systemMessage, ...prev]);
 
     showInAppMessage(
-      'Richiesta Inviata',
-      `✅ Richiesta di prenotazione inviata a ${professional.name}\n📅 Data: ${new Date(date).toLocaleDateString('it-IT')}\n⏰ Orario: ${time}\n📍 Modalità: ${type === 'video' ? 'Videochiamata' : 'Di persona'}`,
+      'Prenotazione Inviata',
+      `✅ Richiesta inviata a ${professional.name} per il ${newAppointment.date} alle ore ${newAppointment.time}`,
       'success'
     );
 
     setTimeout(() => {
       openWindow('appointments', 'I Miei Appuntamenti');
-    }, 2000);
+    }, 1500);
   };
 
   const sendMessage = (professionalName: string, messageText: string) => {
@@ -813,6 +814,9 @@ const TarantoMarketplace = () => {
         backgroundSize: '100px 100px'
       }}
     >
+      {/* Tetris Background Animation */}
+      <TetrisBackground />
+
       {/* Desktop Icons */}
       <div className="p-2 sm:p-4 space-y-2 sm:space-y-4">
         {getDesktopIcons().map((icon, idx) => (
